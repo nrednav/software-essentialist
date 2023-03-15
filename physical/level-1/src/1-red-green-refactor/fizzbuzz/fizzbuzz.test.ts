@@ -17,4 +17,10 @@ describe("fizzbuzz", () => {
     const input = 101;
     expect(() => fizzbuzz(input)).toThrow();
   });
+
+  it("returns Fizz for multiples of 3", () => {
+    const input = 3;
+    const output = fizzbuzz(input);
+    expect(output).toBe("Fizz");
+  });
 });
