@@ -15,4 +15,11 @@ describe("Password Validator", () => {
     expect(validation.result).toBe(false);
     expect(validation.errors.length).toBeGreaterThanOrEqual(1);
   });
+
+  it("invalidates a password that is more than 15 characters long", () => {
+    const password = "This is a really long password";
+    const validation = validatePassword(password);
+    expect(validation.result).toBe(false);
+    expect(validation.errors.length).toBeGreaterThanOrEqual(1);
+  });
 });
