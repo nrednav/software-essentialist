@@ -12,4 +12,9 @@ describe("fizzbuzz", () => {
     const input = 0;
     expect(() => fizzbuzz(input)).toThrow();
   });
+
+  it("does not accept a number greater than 100", () => {
+    const input = 101;
+    expect(() => fizzbuzz(input)).toThrow();
+  });
 });
