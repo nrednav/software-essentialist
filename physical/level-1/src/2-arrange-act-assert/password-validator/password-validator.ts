@@ -8,5 +8,10 @@ export const validatePassword = (password: string): ValidationResult => {
     return { result: false, errors: ["Password is too short"] };
   if (password.length > 15)
     return { result: false, errors: ["Password is too long"] };
+  if (/\d/g.test(password) === false)
+    return {
+      result: false,
+      errors: ["Password does not contain any digits"],
+    };
   return { result: true, errors: [] };
 };

@@ -22,4 +22,11 @@ describe("Password Validator", () => {
     expect(validation.result).toBe(false);
     expect(validation.errors.length).toBeGreaterThanOrEqual(1);
   });
+
+  it("invalidates a password that contains no digits", () => {
+    const password = "Hello World";
+    const validation = validatePassword(password);
+    expect(validation.result).toBe(false);
+    expect(validation.errors.length).toBeGreaterThanOrEqual(1);
+  });
 });
