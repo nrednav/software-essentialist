@@ -5,6 +5,12 @@ describe("palindrome", () => {
   it("takes a string and returns a boolean", () => {
     const input = "hello world";
     const output = palindrome(input);
-    expect(output).toEqual(false);
+    expect(output).toBe(false);
+  });
+
+  it("can detect when a word is a palindrome", () => {
+    const inputs = ["mom", "wow"];
+    const outputs = inputs.map(palindrome);
+    outputs.forEach((output) => expect(output).toBe(true));
   });
 });
