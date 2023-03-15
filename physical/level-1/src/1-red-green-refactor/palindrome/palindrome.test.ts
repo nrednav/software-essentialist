@@ -25,4 +25,10 @@ describe("palindrome", () => {
     const outputs = inputs.map(palindrome);
     outputs.forEach((output) => expect(output).toBe(true));
   });
+
+  it("can detect when phrases are palindromes", () => {
+    const inputs = ["Never Odd or Even", "Stanley Yelnats"];
+    const outputs = inputs.map(palindrome);
+    outputs.forEach((output) => expect(output).toBe(true));
+  });
 });
