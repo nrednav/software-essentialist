@@ -4,19 +4,23 @@ type ValidationResult = {
 };
 
 export const validatePassword = (password: string): ValidationResult => {
-  if (password.length < 5)
-    return { result: false, errors: ["Password is too short"] };
-  if (password.length > 15)
-    return { result: false, errors: ["Password is too long"] };
-  if (/\d/g.test(password) === false)
-    return {
-      result: false,
-      errors: ["Password does not contain any digits"],
-    };
-  if (/[A-Z]/g.test(password) === false)
-    return {
-      result: false,
-      errors: ["Password does not contain any uppercase letter"],
-    };
-  return { result: true, errors: [] };
+  const errors: string[] = [];
+
+  if (password.length < 5) {
+    errors.push("Password is too short");
+  }
+
+  if (password.length > 15) {
+    errors.push("Password is too long");
+  }
+
+  if (/\d/g.test(password) === false) {
+    errors.push("Password does not contain any digits");
+  }
+
+  if (/[A-Z]/g.test(password) === false) {
+    errors.push("Password does not contain any uppercase letter");
+  }
+
+  return { result: errors.length === 0, errors: errors };
 };
