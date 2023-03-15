@@ -1,4 +1,4 @@
-import fizzbuzz from "./fizzbuzz";
+import { fizzbuzz } from "./fizzbuzz";
 import { describe, expect, it } from "vitest";
 
 describe("fizzbuzz", () => {
@@ -18,15 +18,21 @@ describe("fizzbuzz", () => {
     expect(() => fizzbuzz(input)).toThrow();
   });
 
-  it("returns Fizz for multiples of 3", () => {
+  it("returns Fizz for numbers which are multiples of 3", () => {
     const input = 3;
     const output = fizzbuzz(input);
     expect(output).toBe("Fizz");
   });
 
-  it("returns Buzz for multiples of 5", () => {
+  it("returns Buzz for numbers which are multiples of 5", () => {
     const input = 5;
     const output = fizzbuzz(input);
     expect(output).toBe("Buzz");
+  });
+
+  it("returns FizzBuzz for numbers which are multiples of both 3 and 5", () => {
+    const input = 15;
+    const output = fizzbuzz(input);
+    expect(output).toBe("FizzBuzz");
   });
 });
