@@ -19,4 +19,10 @@ describe("palindrome", () => {
     const outputs = inputs.map(palindrome);
     outputs.forEach((output) => expect(output).toBe(false));
   });
+
+  it("is case insensitive", () => {
+    const inputs = ["Mom", "WOW"];
+    const outputs = inputs.map(palindrome);
+    outputs.forEach((output) => expect(output).toBe(true));
+  });
 });
