@@ -8,4 +8,11 @@ describe("Password Validator", () => {
     expect(validation.result).toBe(true);
     expect(validation.errors.length).toBe(0);
   });
+
+  it("invalidates a password that is less than 5 characters long", () => {
+    const password = "Sky";
+    const validation = validatePassword(password);
+    expect(validation.result).toBe(false);
+    expect(validation.errors.length).toBeGreaterThanOrEqual(1);
+  });
 });
