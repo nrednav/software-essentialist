@@ -29,4 +29,11 @@ describe("Password Validator", () => {
     expect(validation.result).toBe(false);
     expect(validation.errors.length).toBeGreaterThanOrEqual(1);
   });
+
+  it("invalidates a password that does not contain at least one uppercase letter", () => {
+    const password = "hello1234";
+    const validation = validatePassword(password);
+    expect(validation.result).toBe(false);
+    expect(validation.errors.length).toBeGreaterThanOrEqual(1);
+  });
 });

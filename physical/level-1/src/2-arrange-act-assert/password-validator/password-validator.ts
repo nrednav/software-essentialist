@@ -13,5 +13,10 @@ export const validatePassword = (password: string): ValidationResult => {
       result: false,
       errors: ["Password does not contain any digits"],
     };
+  if (/[A-Z]/g.test(password) === false)
+    return {
+      result: false,
+      errors: ["Password does not contain any uppercase letter"],
+    };
   return { result: true, errors: [] };
 };
