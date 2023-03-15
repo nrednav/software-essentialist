@@ -13,4 +13,10 @@ describe("palindrome", () => {
     const outputs = inputs.map(palindrome);
     outputs.forEach((output) => expect(output).toBe(true));
   });
+
+  it("can detect when a word is not a palindrome", () => {
+    const inputs = ["hello", "world"];
+    const outputs = inputs.map(palindrome);
+    outputs.forEach((output) => expect(output).toBe(false));
+  });
 });
