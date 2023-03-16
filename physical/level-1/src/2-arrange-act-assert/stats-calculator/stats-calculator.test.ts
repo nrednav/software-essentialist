@@ -22,4 +22,10 @@ describe("Stats Calculator", () => {
     const { max } = calculateStats(sequence);
     expect(max).toBe(64);
   });
+
+  it("can calculate the average value of a sequence", () => {
+    const sequence = [4, 8, 16, 32];
+    const { avg } = calculateStats(sequence);
+    expect(avg).toBe(15);
+  });
 });

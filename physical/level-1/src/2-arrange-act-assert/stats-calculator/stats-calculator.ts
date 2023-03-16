@@ -14,10 +14,13 @@ export const calculateStats = (sequence: number[]): Stats => {
     if (!max || number > max) max = number;
   });
 
+  const sum = sequence.reduce((a, b) => a + b, 0);
+  const avg = sum / sequence.length;
+
   return {
     min: min,
     max: max,
-    avg: 7.5,
-    count: 4,
+    avg: avg,
+    count: sequence.length,
   };
 };
