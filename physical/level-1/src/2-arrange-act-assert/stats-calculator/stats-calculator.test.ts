@@ -10,4 +10,10 @@ describe("Stats Calculator", () => {
     expect(stats.avg).toBe(12);
     expect(stats.count).toBe(4);
   });
+
+  it("can calculate the minimum number in a sequence", () => {
+    const sequence = [4, 10, 16, 20];
+    const { min } = calculateStats(sequence);
+    expect(min).toBe(4);
+  });
 });
