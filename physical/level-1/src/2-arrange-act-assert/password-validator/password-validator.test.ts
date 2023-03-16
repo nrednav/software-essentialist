@@ -36,4 +36,11 @@ describe("Password Validator", () => {
     expect(validation.result).toBe(false);
     expect(validation.errors.length).toBeGreaterThanOrEqual(1);
   });
+
+  it("validates a password that meets all conditions", () => {
+    const password = "ThisIsValid1234";
+    const validation = validatePassword(password);
+    expect(validation.result).toBe(true);
+    expect(validation.errors.length).toBe(0);
+  });
 });
