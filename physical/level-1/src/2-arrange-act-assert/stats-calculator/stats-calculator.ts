@@ -19,11 +19,7 @@ export const calculateStats = (sequence: number[]): Stats => {
 
   const sum = sequence.reduce((a, b) => a + b, 0);
   const avg = sum / sequence.length;
+  const count = sequence.length;
 
-  return {
-    min: min,
-    max: max,
-    avg: avg,
-    count: sequence.length,
-  };
+  return { min, max, avg, count };
 };
