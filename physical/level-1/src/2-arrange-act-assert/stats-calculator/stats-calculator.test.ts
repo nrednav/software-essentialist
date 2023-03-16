@@ -2,13 +2,15 @@ import { calculateStats } from "./stats-calculator";
 import { describe, expect, it } from "vitest";
 
 describe("Stats Calculator", () => {
-  it("takes a sequence of numbers and returns a result", () => {
+  it("calculates stats for a sequence of numbers", () => {
     const sequence = [2, 4, 8, 16];
-    const stats = calculateStats(sequence);
-    expect(stats.min).toBe(2);
-    expect(stats.max).toBe(16);
-    expect(stats.avg).toBe(7.5);
-    expect(stats.count).toBe(4);
+
+    const { min, max, avg, count } = calculateStats(sequence);
+
+    expect(min).toBe(2);
+    expect(max).toBe(16);
+    expect(avg).toBe(7.5);
+    expect(count).toBe(4);
   });
 
   it("can calculate the minimum number in a sequence", () => {
