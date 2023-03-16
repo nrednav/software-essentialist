@@ -6,6 +6,9 @@ type Stats = {
 };
 
 export const calculateStats = (sequence: number[]): Stats => {
+  if (sequence.length === 0)
+    throw new Error("Cannot calculate stats for an empty sequence");
+
   let min = sequence[0];
   let max = sequence[0];
 

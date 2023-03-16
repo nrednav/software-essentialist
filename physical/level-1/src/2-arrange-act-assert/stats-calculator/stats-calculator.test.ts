@@ -30,4 +30,9 @@ describe("Stats Calculator", () => {
     const { avg } = calculateStats(sequence);
     expect(avg).toBe(15);
   });
+
+  it("cannot calculate the stats of an empty sequence", () => {
+    const sequence: number[] = [];
+    expect(() => calculateStats(sequence)).toThrow();
+  });
 });
