@@ -41,4 +41,15 @@ describe("Boolean Calculator", () => {
       expect(BooleanCalculator.evaluate(input)).toBe(expected)
     );
   });
+
+  it("can evaluate expressions with multiple operators combined", () => {
+    const testCases = [
+      ["TRUE OR TRUE OR TRUE AND FALSE", true],
+      ["TRUE OR FALSE AND NOT FALSE", true],
+    ] as const;
+
+    testCases.forEach(([input, expected]) =>
+      expect(BooleanCalculator.evaluate(input)).toBe(expected)
+    );
+  });
 });
