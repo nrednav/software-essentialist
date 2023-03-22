@@ -7,6 +7,8 @@ describe("Military Time Validator", () => {
     ["25:00 - 12:23", false],
     ["22:00 - 23:12", true],
     ["01:23 - 45:67", false],
+    ["00:00 - 23:59", true],
+    ["11:45 - 24:42", false],
   ])("isValidMilitaryTimeRange(%s) -> %s", (input, output) => {
     expect(isValidMilitaryTimeRange(input)).toBe(output);
   });
