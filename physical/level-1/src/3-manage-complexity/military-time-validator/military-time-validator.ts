@@ -1,22 +1,20 @@
-export const isValidMilitaryTimeRange = (timeRange: string): boolean => {
+const isValidTime = (time: string): boolean => {
   let validComponents = 0;
-  const [start, end] = timeRange.split(" - ");
+  const [hour, minute] = time.split(":").map(Number);
 
-  if (!(start && end)) return false;
+  if (hour === undefined || Number.isNaN(hour)) return false;
+  if (minute === undefined || Number.isNaN(minute)) return false;
 
-  const [startHour, startMinute] = start.split(":").map(Number);
+  if (hour >= 0 && hour < 24) validComponents += 1;
+  if (minute >= 0 && minute < 60) validComponents += 1;
 
-  if (startHour === undefined || startMinute === undefined) return false;
+  return validComponents === 2;
+};
 
-  if (startHour >= 0 && startHour < 24) validComponents += 1;
-  if (startMinute >= 0 && startMinute < 60) validComponents += 1;
+export const isValidMilitaryTimeRange = (timeRange: string): boolean => {
+  const [startTime, endTime] = timeRange.split(" - ");
 
-  const [endHour, endMinute] = end.split(":").map(Number);
+  if (!startTime || !endTime) return false;
 
-  if (!(endHour && endMinute)) return false;
-
-  if (endHour >= 0 && endHour < 24) validComponents += 1;
-  if (endMinute >= 0 && endMinute < 60) validComponents += 1;
-
-  return validComponents === 4;
+  return isValidTime(startTime) && isValidTime(endTime);
 };
