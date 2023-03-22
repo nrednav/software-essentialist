@@ -1,14 +1,22 @@
 export class BooleanCalculator {
   static evaluate(expression: string): boolean {
-    if (expression.includes(" AND ")) {
-      const [leftExpression, rightExpression] = expression.split(" AND ");
-      if (!leftExpression || !rightExpression)
-        throw new Error("Invalid expression");
-      return this.evaluate(leftExpression) && this.evaluate(rightExpression);
+    expression = expression.toLowerCase();
+
+    if (expression.includes(" and ")) {
+      const [leftSubExpression, rightSubExpression] = expression.split(" and ");
+
+      if (!leftSubExpression || !rightSubExpression)
+        throw new Error("Invalid Expression");
+
+      return (
+        this.evaluate(leftSubExpression) && this.evaluate(rightSubExpression)
+      );
     }
-    if (expression === "NOT TRUE") return false;
-    if (expression === "NOT FALSE") return true;
-    if (expression === "TRUE") return true;
+
+    if (expression === "not true") return false;
+    if (expression === "not false") return true;
+    if (expression === "true") return true;
+
     return false;
   }
 }
