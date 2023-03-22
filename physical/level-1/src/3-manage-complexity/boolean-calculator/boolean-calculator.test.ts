@@ -15,4 +15,17 @@ describe("Boolean Calculator", () => {
     expect(outputs[0]).toBe(false);
     expect(outputs[1]).toBe(true);
   });
+
+  it("can evaluate expressions with the AND operator", () => {
+    const testCases = [
+      ["FALSE AND FALSE", false],
+      ["FALSE AND TRUE", false],
+      ["TRUE AND FALSE", false],
+      ["TRUE AND TRUE", true],
+    ] as const;
+
+    testCases.forEach(([input, expected]) =>
+      expect(BooleanCalculator.evaluate(input)).toBe(expected)
+    );
+  });
 });
