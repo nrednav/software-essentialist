@@ -8,4 +8,11 @@ describe("Boolean Calculator", () => {
     expect(outputs[0]).toBe(true);
     expect(outputs[1]).toBe(false);
   });
+
+  it("can evaluate expressions with the NOT operator", () => {
+    const inputs = ["NOT TRUE", "NOT FALSE"];
+    const outputs = inputs.map(BooleanCalculator.evaluate);
+    expect(outputs[0]).toBe(false);
+    expect(outputs[1]).toBe(true);
+  });
 });
