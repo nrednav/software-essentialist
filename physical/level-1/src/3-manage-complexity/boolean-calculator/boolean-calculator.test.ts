@@ -28,4 +28,17 @@ describe("Boolean Calculator", () => {
       expect(BooleanCalculator.evaluate(input)).toBe(expected)
     );
   });
+
+  it("can evaluate expressions with the OR operator", () => {
+    const testCases = [
+      ["FALSE OR FALSE", false],
+      ["FALSE OR TRUE", true],
+      ["TRUE OR FALSE", true],
+      ["TRUE OR TRUE", true],
+    ] as const;
+
+    testCases.forEach(([input, expected]) =>
+      expect(BooleanCalculator.evaluate(input)).toBe(expected)
+    );
+  });
 });

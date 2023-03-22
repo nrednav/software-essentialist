@@ -13,6 +13,17 @@ export class BooleanCalculator {
       );
     }
 
+    if (expression.includes(" or ")) {
+      const [leftSubExpression, rightSubExpression] = expression.split(" or ");
+
+      if (!leftSubExpression || !rightSubExpression)
+        throw new Error("Invalid Expression");
+
+      return (
+        this.evaluate(leftSubExpression) || this.evaluate(rightSubExpression)
+      );
+    }
+
     if (expression === "not true") return false;
     if (expression === "not false") return true;
     if (expression === "true") return true;
