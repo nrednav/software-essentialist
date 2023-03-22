@@ -7,4 +7,10 @@ describe("Military Time Validator", () => {
     const output = isValidMilitaryTimeRange(input);
     expect(output).toBe(true)
   })
+
+  it("knows 25:00 - 12:23 is an invalid time range", () => {
+    const input = "25:00 - 12:23"
+    const output = isValidMilitaryTimeRange(input);
+    expect(output).toBe(false)
+  })
 })
