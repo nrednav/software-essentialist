@@ -52,4 +52,18 @@ describe("Boolean Calculator", () => {
       expect(BooleanCalculator.evaluate(input)).toBe(expected)
     );
   });
+
+  it("can evaluate expressions with parentheses", () => {
+    const testCases = [
+      ["(TRUE OR TRUE OR TRUE) AND FALSE", false],
+      ["NOT (TRUE AND TRUE)", false],
+      ["(TRUE AND FALSE) OR (TRUE AND TRUE)", true],
+      ["(TRUE AND FALSE OR TRUE) OR (TRUE AND TRUE AND FALSE)", true],
+      ["(FALSE OR FALSE) AND (TRUE OR FALSE)", false],
+    ] as const;
+
+    testCases.forEach(([input, expected]) =>
+      expect(BooleanCalculator.evaluate(input)).toBe(expected)
+    );
+  });
 });

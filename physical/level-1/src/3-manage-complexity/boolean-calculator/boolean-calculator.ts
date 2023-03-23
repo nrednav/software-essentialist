@@ -2,6 +2,13 @@ export class BooleanCalculator {
   static evaluate(expression: string): boolean {
     expression = expression.toLowerCase();
 
+    if (expression.includes("(")) {
+      expression = expression.replace(/\([^)]+\)/, (match) => {
+        const subExpression = match.slice(1, match.length - 1);
+        return String(this.evaluate(subExpression));
+      });
+    }
+
     if (expression.includes(" or ")) {
       const [leftSubExpression, rightSubExpression] = expression.split(" or ");
 
